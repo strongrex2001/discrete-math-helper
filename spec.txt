@@ -1,0 +1,7 @@
+var p, q;
+p & q;
+p | q;
+~p;
+p -> q;
+p <-> q;
+p ^ q;
