@@ -1,0 +1,4 @@
+var p, q, r, s;
+((p -> q) -> r) -> s;
+var q, r;
+p & q -> r;
