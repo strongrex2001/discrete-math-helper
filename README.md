@@ -1,7 +1,7 @@
 # Helper for Discrete Mathematics
 Tool for Discrete Mathematics ~~Homework~~. Runs under any version of python 3 and does not depend on any other libraries.
 
-Currently, if you specify variables and an expression, a truth-table will be outputed.
+Currently, if you specify variables and an expression, a truth-table will be outputed. Or you may call `truth_table` or `always_holds` explicitly to perform these actions on an `expr`.
 
 ## Usage
 1. Specify input from a .logi file

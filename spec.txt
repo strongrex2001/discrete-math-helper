@@ -5,3 +5,5 @@ p | q;
 p -> q;
 p <-> q;
 p ^ q;
+func(some_expr); /where func: [truth_table, always_holds]
+some_expr; /same as truth_table(some_expr)
