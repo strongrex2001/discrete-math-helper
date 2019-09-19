@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """
+Tokenize string input.
 Created on Wed Sep 18 13:18:07 2019
 
 @author: eliphat
