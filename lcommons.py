@@ -1,12 +1,14 @@
 # -*- coding: utf-8 -*-
 """
+Common definitions used by other modules.
 Created on Wed Sep 18 13:30:42 2019
 
 @author: eliphat
 """
 
 
-keywords = {'var', '&EOF'}
+builtin_fns = {'truth_table', 'always_holds'}
+keywords = builtin_fns.union({'var', '&EOF'})
 ops = {
     '&': 2, '|': 3, '~': 1, '->': 4, '<->': 5, '^': 6
 }
