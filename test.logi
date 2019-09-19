@@ -1,3 +1,7 @@
-var p, q, r, s;
+var p, q;
+always_holds( (~(p & q)) <-> (~p | ~q) );
+
+var r, s;
+
 always_holds(((p -> r) -> (q -> s)) <-> ((p -> q) -> (r -> s)));
 truth_table(((p -> r) -> (q -> s)) <-> ((p -> q) -> (r -> s)));
