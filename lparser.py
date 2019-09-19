@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """
+Parsing token sequence to AST.
 Created on Wed Sep 18 13:54:35 2019
 
 @author: eliphat
@@ -20,6 +21,11 @@ def parse(tokens):
         data[0] += 1
         return lookahead()
 
+    def match(token, error):
+        if lookahead()[1] != token:
+            raise Exception(error)
+        next_token()
+
     def expr(order):
         if order < 0:
             return expr_atom()
@@ -33,9 +39,7 @@ def parse(tokens):
         if lookahead()[1] == '(':
             next_token()
             operand = expr(len(bops) - 1)
-            if lookahead()[1] != ')':
-                raise Exception("No Matching ')' Found for '('")
-            next_token()
+            match(')', "No Matching ')' Found for '('")
             return operand
         if lookahead()[0] == 'token':
             operand = lookahead()
@@ -65,11 +69,21 @@ def parse(tokens):
         if lookahead()[1] == 'var':
             next_token()
             return ('var_decl', var_list())
+        if lookahead()[0] == 'keyword':
+            if lookahead()[1] in commons.builtin_fns:
+                fn = lookahead()[1]
+                next_token()
+                match('(', 'Argument List Required after ' + fn)
+                args = [expr(len(bops) - 1)]
+                while lookahead()[1] == ',':
+                    match(',', '')
+                    args.append(expr(len(bops) - 1))
+                match(')', "No Matching ')' Found for '('")
+                match(';', "Missing ';'")
+                return ('fn_run', (fn, args))
         if lookahead()[0] in ('token', 'op', 'special'):
             ret = ('expr', expr(len(bops) - 1))
-            if lookahead()[1] != ';':
-                raise Exception("Missing ';'")
-            next_token()
+            match(';', "Missing ';'")
             return ret
         raise Exception("Bad Token Met: " + str(lookahead()))
 
