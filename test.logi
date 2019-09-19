@@ -1,2 +1,3 @@
 var p, q, r, s;
-((p -> q) -> r) -> s;
+always_holds(((p -> r) -> (q -> s)) <-> ((p -> q) -> (r -> s)));
+truth_table(((p -> r) -> (q -> s)) <-> ((p -> q) -> (r -> s)));
