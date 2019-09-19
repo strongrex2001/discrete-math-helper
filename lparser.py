@@ -49,7 +49,7 @@ def parse(tokens):
             if lookahead()[1] in commons.sop_table:
                 op1 = lookahead()[1]
                 next_token()
-                return ('uny_expr', op1, expr(len(bops) - 1))
+                return ('uny_expr', op1, expr_atom())
         raise Exception("Bad Token Met: " + str(lookahead()))
 
     def var_list():
