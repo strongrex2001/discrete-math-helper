@@ -1,0 +1,4 @@
+var p, q, r;
+always_holds(((p -> q) | (p -> r)) <-> (p -> (q | r)));
+(p -> q) | (p -> r);
+p -> (q | r);

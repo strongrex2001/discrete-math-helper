@@ -1,0 +1,4 @@
+var p, q;
+always_holds((~(p <-> q)) <-> (p <-> ~q));
+~(p <-> q);
+p <-> ~q;
